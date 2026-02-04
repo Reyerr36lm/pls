@@ -55,6 +55,26 @@ def stop_ollama(process):
         except subprocess.TimeoutExpired:
             process.kill()
 
+def sanitize_command(raw: str) -> str:
+    raw = raw.strip()
+
+    # Remove fenced code blocks ```...```
+    if raw.startswith("```"):
+        lines = raw.splitlines()
+        lines = [ln for ln in lines if not ln.strip().startswith("```")]
+        raw = "\n".join(lines).strip()
+
+    # Remove single backticks wrapping the whole command
+    if raw.startswith("`") and raw.endswith("`") and len(raw) > 2:
+        raw = raw[1:-1].strip()
+
+    # Use only the first non-empty line
+    for line in raw.splitlines():
+        line = line.strip()
+        if line:
+            return line
+    return ""
+
 # --- MAIN LOGIC ---
 server_process = None
 
@@ -101,6 +121,7 @@ def main():
                 'You are a macOS Terminal expert. '
                 'Output ONLY the valid macOS raw command string. '
                 'Do not use markdown blocks. Do not offer explanations.'
+                'Do not generate any commands that can cause catastrophic damage to the system'
             )
 
         # --- THE THINKING ANIMATION ---
@@ -120,13 +141,18 @@ def main():
         if ask_mode:
             console.print(Panel(content, title="[bold cyan]Answer[/bold cyan]", border_style="cyan"))
         else:
+            command = sanitize_command(content)
+            if not command:
+                console.print("[bold red]Error:[/bold red] Model returned an empty command.")
+                return
+
             # Highlight the command code
-            syntax = Syntax(content, "bash", theme="monokai", line_numbers=False)
+            syntax = Syntax(command, "bash", theme="monokai", line_numbers=False)
             console.print(Panel(syntax, title="[bold green]Suggested Command[/bold green]", border_style="green"))
             
             confirm = console.input(f"[grey50][?][/grey50] Run this? ([bold]Y[/bold]/n): ").lower()
             if confirm in ['', 'y', 'yes']:
-                subprocess.run(content, shell=True)
+                subprocess.run(command, shell=True)
             else:
                 console.print("[dim]Aborted.[/dim]")
 
