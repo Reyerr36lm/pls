@@ -58,22 +58,20 @@ def stop_ollama(process):
 def sanitize_command(raw: str) -> str:
     raw = raw.strip()
 
-    # Remove fenced code blocks ```...```
-    if raw.startswith("```"):
+    # 1. Remove markdown code blocks (```bash ... ```)
+    if "```" in raw:
         lines = raw.splitlines()
+        # Keep only lines that are NOT the ``` markers
         lines = [ln for ln in lines if not ln.strip().startswith("```")]
+        # Re-join them
         raw = "\n".join(lines).strip()
 
-    # Remove single backticks wrapping the whole command
+    # 2. Remove inline backticks (`command`)
     if raw.startswith("`") and raw.endswith("`") and len(raw) > 2:
         raw = raw[1:-1].strip()
 
-    # Use only the first non-empty line
-    for line in raw.splitlines():
-        line = line.strip()
-        if line:
-            return line
-    return ""
+    # 3. Return the FULL string, not just the first line
+    return raw
 
 # --- MAIN LOGIC ---
 server_process = None
@@ -122,6 +120,9 @@ def main():
                 'Output ONLY the valid macOS raw command string. '
                 'Do not use markdown blocks. Do not offer explanations.'
                 'Do not generate any commands that can cause catastrophic damage to the system'
+                'Do not generate multi line commands.'
+                'Combine multi-line commands into a SINGLE LINE using && or ; where possible.'
+                'always use the simplest command possible to achieve the goal.'
             )
 
         # --- THE THINKING ANIMATION ---
